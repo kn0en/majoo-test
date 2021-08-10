@@ -5,4 +5,4 @@ Username : testadmin
 Password : Testing123
 ##
 
-untuk database berada di folder database.
+untuk database-nya berada di folder database.
