@@ -1,5 +1,3 @@
-# Majoo-test
-
 # Admin Login Access
 
 Username : testadmin
