@@ -1,4 +1,4 @@
-<div class="container " style="margin-top: 15px;">
+<div class="container " style="margin-bottom: 30px; ">
     <div style="margin-bottom: 20px;">
         <h2 class="text-white">Product</h2>
     </div>
@@ -7,14 +7,16 @@
         <?php foreach ($product as $prd) : ?>
             <div class="col-lg mb-3">
                 <div style="margin-left: 15px;">
-                    <div class="card mb-3 ml-2" style="width: 18rem;">
-                        <img src="<?= base_url('assets/img/product/') . $prd['image_product']; ?>" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"><? $prd['name_product']; ?></h5>
-                            <h6 class="card-title"><? $prd['price']; ?></h6>
-                            <p class="card-text"><?= $prd['detail_product']; ?></p>
+                    <div class="card">
+                        <img src="<?= base_url('assets/img/product/') . $prd['image_product']; ?>" class="card-img-top card-img align-content-sm-center">
+                        <div class="card-body ">
+                            <h5 class="card-title"  style="text-align: center;"><b><?= $prd['name_product']; ?></b></h5>
+                            <h6 class="card-subtitle" style="text-align: center;"><b>Rp. <?= $prd['price']; ?></b></h6>
+                            <hr>
+                            <p class="card-text" style="text-align: center;"><?= $prd['detail_product']; ?></p>
+                            <hr>
                             <a href="#" class="btn btn-primary">Buy</a>
-                            <a href="#" class="btn btn-success">Detail</a>
+                            <a href="#" class="btn btn-success float-right">Detail</a>
                         </div>
                     </div>
                 </div>
