@@ -142,12 +142,36 @@ class Admin extends CI_Controller
             $this->load->view('templates/admin_header', $data);
             $this->load->view('templates/admin_sidebar', $data);
             $this->load->view('admin/changeproduct', $data);
+            $this->load->view('templates/admin_footer', $data);
             
         }else{
-            $this->Product_model->changeProduct();
+            $upload_image = $_FILES['imageproduct']['name'];
 
-            $this->session->set_flashdata('messageChangeData', '<div class="alert alert-success text-center" role="alert">Success! Product has been changed.</div>');
-            redirect('Admin/listproduct');
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size'] = '2048';
+                $config['upload_path'] = './assets/img/product/';
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('imageproduct')) {
+                    $old_image = $data['product']['image_product'];
+                    if ($old_image != 'default_image_product.png') {
+                        unlink(FCPATH . 'assets/img/product/' . $old_image);
+                    }
+
+                    $new_image = $this->upload->data('file_name');
+
+                    $this->Product_model->changeProduct($id ,$new_image);
+
+                    $this->session->set_flashdata('messageChangeData', '<div class="alert alert-success text-center" role="alert">Success! Product has been changed.</div>');
+                    redirect('Admin/listproduct');
+
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
+           
         }
     }
 }
