@@ -35,6 +35,27 @@ class Admin extends CI_Controller
         $this->load->view('templates/admin_footer');
     }
 
+    public function editprofile()
+    {
+        $data['heading'] = 'Admin | Edit Profile';
+        $data['user'] = $this->db->get_where('tbl_admin', ['username' => $this->session->userdata('username')])->row_array();
+
+        $this->form_validation->set_rules('fullName', 'Full Name', 'required|trim');
+        $this->form_validation->set_rules('userName', 'User Name', 'required|trim|is_unique[product.name_product]' , [
+            'is_unique' => 'The User Name already in Database!'
+        ]);
+
+        if($this->form_validation->run() == false){
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/admin_sidebar', $data);
+            $this->load->view('admin/editprofile', $data);
+            $this->load->view('templates/admin_footer');
+        }else{
+            $this->session->set_flashdata('messageEditProfile', '<div class="alert alert-success text-center" role="alert">Success! Profile has been updated.</div>');
+            redirect('Admin/myprofile');
+        }
+    }
+
     public function addproduct()
     {
         $data['heading'] = 'Admin | Add Product';

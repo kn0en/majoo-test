@@ -12,4 +12,8 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('tbl_admin',$data);
     }
+
+    public function updateProfile(){
+
+    }
 }

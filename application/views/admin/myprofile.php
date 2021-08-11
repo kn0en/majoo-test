@@ -3,7 +3,10 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $heading; ?></h1>
-
+    
+    <div class="col-lg-8">
+            <?= $this->session->flashdata('messageEditProfile') ?>
+        </div>
 
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
