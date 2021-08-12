@@ -8,6 +8,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Product_model');
+        $this->load->model('Admin_model');
         if (!$this->session->userdata('username')) {
             redirect('auth');
         }
@@ -41,9 +42,6 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('tbl_admin', ['username' => $this->session->userdata('username')])->row_array();
 
         $this->form_validation->set_rules('fullName', 'Full Name', 'required|trim');
-        $this->form_validation->set_rules('userName', 'User Name', 'required|trim|is_unique[product.name_product]' , [
-            'is_unique' => 'The User Name already in Database!'
-        ]);
 
         if($this->form_validation->run() == false){
             $this->load->view('templates/admin_header', $data);
@@ -51,8 +49,33 @@ class Admin extends CI_Controller
             $this->load->view('admin/editprofile', $data);
             $this->load->view('templates/admin_footer');
         }else{
-            $this->session->set_flashdata('messageEditProfile', '<div class="alert alert-success text-center" role="alert">Success! Profile has been updated.</div>');
-            redirect('Admin/myprofile');
+
+            $upload_image = $_FILES['profileImage']['name'];
+
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size'] = '2048';
+                $config['upload_path'] = './assets/img/profile/';
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('profileImage')) {
+                    $old_image = $data['user']['image'];
+                    if ($old_image != 'default_image.svg') {
+                        unlink(FCPATH . 'assets/img/profile/' . $old_image);
+                    }
+
+                    $new_profile_image = $this->upload->data('file_name');
+
+                    $this->Admin_model->updateProfile($new_profile_image);
+
+                    $this->session->set_flashdata('messageEditProfile', '<div class="alert alert-success text-center" role="alert">Success! Profile has been updated.</div>');
+                    redirect('Admin/myprofile');
+
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
         }
     }
 

@@ -20,8 +20,7 @@
             <div class="form-group row mb-3">
                 <label for="userName" class="col-sm-2 col-form-label">User Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="userName" name="userName" value="<?= $user['username']; ?>"></input>
-                    <?= form_error('userName', '<small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="text" class="form-control" id="userName" name="userName" value="<?= $user['username']; ?>" readonly></input>
                 </div>
             </div>
 
