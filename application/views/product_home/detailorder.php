@@ -1,4 +1,4 @@
-<div class="container" style="margin-bottom: 30px; ">
+<div class="container" style="margin-top: 25px; margin-bottom: 30px; ">
 
     <div style="margin-bottom: 20px;">
         <h2 class="text-white"> Detail Order</h2>
@@ -73,6 +73,7 @@
                             </div>
                             <div class="text-center" style="margin-top: 30px;">
                                 <button type="submit" class="btn btn-success" style="width: 150px;">Submit</button>
+                                <a href="<?= base_url('product');?>" class="btn btn-danger" style="width: 150px; margin-left: 30px;">Cancel</a>
                             </div>
 
                         </form>

@@ -1,4 +1,4 @@
-<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+<header class="navbar navbar-expand-md navbar-dark bd-navbar bg-gradient-success">
   <nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
     <a class="navbar-brand p-0 me-2" href="<?= base_url('product'); ?>">
       <i class="fab fa-mastodon"></i>

@@ -28,4 +28,4 @@
     </style>
   </head>
 
-  <body id="page-top" class="bg-gradient-primary">
+  <body id="page-top" class="bg-gradient-success">
