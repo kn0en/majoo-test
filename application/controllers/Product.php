@@ -22,4 +22,18 @@ class Product extends CI_Controller {
 		$this->load->view('product_home/index',$data);
         $this->load->view('templates/footer');
 	}
+
+	public function detailorder($id)
+	{
+        $data['heading'] = 'Majoo Product | Detail Order';
+
+		$data['user'] = $this->db->get_where('tbl_admin', ['username' => $this->session->userdata('username')])->row_array();
+
+		$data['product'] = $this->Product_model->getProductbyId($id);
+
+        $this->load->view('templates/header', $data);
+		$this->load->view('templates/navbar',$data);
+		$this->load->view('product_home/detailorder',$data);
+        $this->load->view('templates/footer');
+	}
 }

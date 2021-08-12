@@ -10,7 +10,8 @@
       <?php if ($user == null) : ?>
         <a class="btn btn-bd-download d-lg-inline-block my-2 my-md-0 ms-md-3 text-white ms-md-auto" href="<?= base_url('auth'); ?>">Login</a>
       <?php else : ?>
-        <a class="btn btn-bd-download d-lg-inline-block my-2 my-md-0 ms-md-3 text-white ms-md-auto" href="<?= base_url('admin'); ?>"><?= $user['fullname']; ?></a>
+        <a class="btn btn-bd-download d-lg-inline-block my-2 my-md-0 ms-md-3 text-white ms-md-auto" href="<?= base_url('admin'); ?>"><?= $user['fullname']; ?>  <img class="img-profile rounded-circle ml-1" style="width: 30px; height: 30px;" src="<?= base_url('assets/img/profile/') . $user['image']; ?>"></a>
+       
       <?php endif; ?>
 
     </div>
