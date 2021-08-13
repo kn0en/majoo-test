@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="text-center" style="margin-top: 30px;">
-                                <button type="submit" class="btn btn-success" style="width: 150px;">Submit</button>
+                                <button type="button" class="btn btn-success" style="width: 150px;" data-toggle="modal" data-target="#myModal">Submit</button>
                                 <a href="<?= base_url('product');?>" class="btn btn-danger" style="width: 150px; margin-left: 30px;">Cancel</a>
                             </div>
 
