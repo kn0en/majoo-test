@@ -13,10 +13,9 @@ class Admin_model extends CI_Model {
         $this->db->insert('tbl_admin',$data);
     }
 
-    public function updateProfile($new_profile_image){
+    public function updateProfile(){
         $data = [
             'fullname' => htmlspecialchars($this->input->post('fullName', true)),
-            'image' => $new_profile_image
         ];
 
         $this->db->set($data);

@@ -28,16 +28,14 @@ class Product_model extends CI_Model
     {
     }
 
-    public function changeProduct($id ,$new_image)
+    public function changeProduct($id)
     {
 
         $id  = $this->input->post('idproduct', true);
         $data = [
             'name_product' => htmlspecialchars($this->input->post('productName', true)),
             'detail_product' => htmlspecialchars($this->input->post('productDetail', true)),
-            'price' => htmlspecialchars($this->input->post('price', true)),
-            'image_product' => $new_image
-
+            'price' => htmlspecialchars($this->input->post('price', true))
         ];
 
         $this->db->set($data);
