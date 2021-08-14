@@ -7,7 +7,7 @@
             <div class="col-lg-3 col-md-6">
                 <div>
                     <div class="card" style="margin-bottom: 30px;">
-                        <img src="<?= base_url('assets/img/product/') . $prd['image_product']; ?>" class="card-img-top card-img align-content-sm-center">
+                        <img src="<?= base_url('assets/img/product/') . $prd['image_product']; ?>" class="card-img-top card-img align-content-sm-center" style="margin-top: 15px;">
                         <div class="card-body" style=" height:450px;">
                             <h5 class="card-title" style="text-align: center;"><b><?= $prd['name_product']; ?></b></h5>
                             <h6 class="card-subtitle" style="text-align: center;"><b>Rp. <?= $prd['price']; ?></b></h6>

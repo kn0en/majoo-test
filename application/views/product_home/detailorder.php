@@ -4,8 +4,8 @@
         <h2 class="text-white"> Detail Order</h2>
     </div>
     <div class="row">
-        <div class="col-lg-4 ">
-            <div class="card mb-3" style="width: 550px; height: 500px;">
+        <div class="col-lg-4 col-md-6" style="margin-bottom: 30px;">
+            <div class="card" style="width: 550px; height: 500px;">
                 <div class="row g-0">
                     <div class="col-md-4" style="margin-top: 20px; margin-left: 15px;">
                         <div class="card-title" style="width: 300px;">
@@ -28,8 +28,8 @@
             </div>
         </div>
 
-        <div class="col-lg-4" style="margin-left: 250px;">
-            <div class="card mb-3" style="width: 600px; height: 550px;">
+        <div class="col-lg-4 col-md-6" style="margin-left: 250px; margin-bottom: 30px;">
+            <div class="card" style="width: 600px; height: 550px;">
                 <div class="row g-0">
                     <div class="col-md-4" style="margin-top: 20px; margin-left: 15px;">
                         <div class="card-title" style="width: 300px;">
