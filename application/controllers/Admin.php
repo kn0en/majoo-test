@@ -136,8 +136,14 @@ class Admin extends CI_Controller
 
 	public function revieworder()
 	{
+
 		$data['heading'] = 'Admin | Review Order';
 		$data['user'] = $this->db->get_where('tbl_admin', ['username' => $this->session->userdata('username')])->row_array();
+
+		if($this->session->userdata('role') == 'user'){
+            redirect('admin');
+        }
+
 
 		$this->load->view('templates/admin_header', $data);
 		$this->load->view('templates/admin_sidebar', $data);

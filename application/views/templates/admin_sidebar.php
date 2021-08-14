@@ -41,13 +41,16 @@
 
           <!-- Divider -->
           <hr class="sidebar-divider">
-          
+          <?php if ($user['username'] == ($user['role'] == 'user')) : ?>
           <!-- Nav Item - Tables -->
-          <li class="nav-item">
+		  <?php elseif ($user['username'] == ($user['role'] == 'admin')) : ?>
+			<li class="nav-item">
               <a class="nav-link" href="<?= base_url('admin/revieworder'); ?>">
                   <i class="fas fa-fw fa-cart-plus"></i>
                   <span>Review Order</span></a>
           </li>
+		  <?php endif; ?>
+
 
           <!-- Divider -->
           <hr class="sidebar-divider d-none d-md-block">

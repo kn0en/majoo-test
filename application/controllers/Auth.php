@@ -42,7 +42,8 @@ class Auth extends CI_Controller
             if (password_verify($password, $user['password'])) {
 
                 $data = [
-                    'username' => $user['username']
+                    'username' => $user['username'],
+					'role' => $user['role']
                 ];
                 $this->session->set_userdata($data);
                 redirect('Admin');

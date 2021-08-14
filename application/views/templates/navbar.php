@@ -10,7 +10,7 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<div class="navbar-nav ml-auto">
 				<?php if ($user == null) : ?>
-					<a class="nav-item nav-link text-white" href="<?= base_url('auth'); ?>">Login</a>
+					<a class="nav-item nav-link text-white" href="<?= base_url('auth'); ?>"><i class="fas fa-sign-in-alt"></i> Login</a>
 				<?php else : ?>
 					<a class="nav-item nav-link text-white" href="<?= base_url('admin'); ?>"><?= $user['fullname']; ?> <img class="img-profile rounded-circle ml-1" style="width: 30px; height: 30px;" src="<?= base_url('assets/img/profile/') . $user['image']; ?>"></a>
 				<?php endif; ?>
