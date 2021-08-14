@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2021 at 04:12 PM
+-- Generation Time: Aug 14, 2021 at 05:08 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -40,10 +40,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_product`, `name_product`, `price`, `detail_product`, `image_product`) VALUES
-(5, 'Majoo Pro', '2.800.000', 'With the proper ingredients, success comes naturally. Here\'s everything you need to make a distinctive tasting sausage stick that will be sure to tingle your taste buds. Comes with complete instructions.', 'standard_repo.png'),
-(6, 'Majoo Advance', '2.750.000', 'Custom BioGenic Systems V5000-AB/C Isothermal Carousel Liquid Nitrogen Freezers offer liquid nitrogen storage temperatures without liquid nitrogen contact. Liquid nitrogen is stored in our patented jacketed space in the wall of the freezer.', 'paket-advance.png'),
+(5, 'Majoo Pro', '2.700.000', 'With the proper ingredients, success comes naturally. Here\'s everything you need to make a distinctive tasting sausage stick that will be sure to tingle your taste buds. Comes with complete instructions.', 'standard_repo.png'),
+(6, 'Majoo Advance', '2.800.000', 'Custom BioGenic Systems V5000-AB/C Isothermal Carousel Liquid Nitrogen Freezers offer liquid nitrogen storage temperatures without liquid nitrogen contact. Liquid nitrogen is stored in our patented jacketed space in the wall of the freezer.', 'paket-advance.png'),
 (7, 'Majoo Lifestyle', '3.000.000', 'Selected by House Beautiful Magazine as Best For The Bath. Our award-winning Natural Honey Facial Cleansing Bar is enriched with natural skin nourishing extracts, honey and royal jelly.', 'paket-lifestyle.png'),
-(8, 'Majoo Desktop', '4.500.000', 'At Hillbilly Stills we carry some of the best moonshine stills for sale you will find anywhere and our Turn Key Distillery is certainly no exception. This is the perfect whiskey, rum, and moonshine still kit for the serious distiller.', 'paket-desktop.png');
+(8, 'Majoo Desktop', '3.500.000', 'At Hillbilly Stills we carry some of the best moonshine stills for sale you will find anywhere and our Turn Key Distillery is certainly no exception. This is the perfect whiskey, rum, and moonshine still kit for the serious distiller.', 'paket-desktop.png');
 
 -- --------------------------------------------------------
 
@@ -56,8 +56,17 @@ CREATE TABLE `tbl_admin` (
   `fullname` varchar(128) NOT NULL,
   `username` varchar(128) NOT NULL,
   `image` varchar(128) NOT NULL,
-  `password` varchar(256) NOT NULL
+  `password` varchar(256) NOT NULL,
+  `role` varchar(25) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_admin`
+--
+
+INSERT INTO `tbl_admin` (`id`, `fullname`, `username`, `image`, `password`, `role`) VALUES
+(1, 'Oktavian Yudha Pratama', 'kn0en', 'download.jpg', '$2y$10$ELLnUY2DTMEGA2KfEBCcIuVpX0vmK52BfAvLEaT2NJZfnxrYvLhMO', 'user'),
+(2, 'Bobby', 'testadmin', 'default_image.svg', '$2y$10$Mvhiyje85EUUD3Y6.NBrB.RdqXJiJFZKbwBPYsaiDl777jVXvsCey', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -89,7 +98,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
